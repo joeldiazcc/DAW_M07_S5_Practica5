@@ -1,12 +1,13 @@
-<?php 
-// Conexió a la Data Base
-        $db_host = "localhost";
-        $db_nombre = "ddbb";
-        $db_usuario = "root";
-        $db_passwd = "";
+<?php
+// Conexió a la Data Base con PDO
+$db_host = "localhost";
+$db_name = "productdb";
+$db_user = "root";
+$db_passwd = "";
 
-        $connection = mysqli_connect($db_host, $db_usuario, $db_passwd, $db_nombre);
-        $consulta = "SELECT * FROM PRODUCT";
-
-        $products = mysqli_query($connection, $consulta);
+try {
+    $connect_PDO = new PDO ($db_host, $db_user, $db_passwd, $db_name);
+} catch (Exception $e) {
+    die("Database connection failed: " . $e->GetMessage());
+}
 ?>
